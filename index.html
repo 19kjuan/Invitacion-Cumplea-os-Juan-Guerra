@@ -4,6 +4,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>90 Años · Juan Bautista Guerra Contreras</title>
+
+<!-- Open Graph Tags for WhatsApp Sharing -->
+<meta property="og:title" content="90 Años · Juan Bautista Guerra Contreras">
+<meta property="og:description" content="Celebremos juntos los 90 años de Don Juan Bautista. Sábado 27 de Junio, 2026 - Casa Campo Casa Palma">
+<meta property="og:image" content="https://invitacion-cumplea-os-juan-guerra.vercel.app/img/nowatermark_ABuelo.png">
+<meta property="og:url" content="https://invitacion-cumplea-os-juan-guerra.vercel.app/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_ES">
+<meta name="twitter:card" content="summary_large_image">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=Great+Vibes&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -408,7 +417,7 @@
     <h3>Confirmar Asistencia</h3>
     <div id="mform">
       <input type="text" id="nombre" placeholder="Tu nombre completo" />
-      <input type="number" id="personas" placeholder="¿Cuántas personas asistirán?" min="1" max="20" />
+      <input type="number" id="personas" placeholder="¿Cuántas personas asistirán?" min="1" max="20" onkeypress="return event.charCode >= 48 && event.charCode <= 57" />
       <select id="conf">
         <option value="si">✅ Sí, estaré presente</option>
         <option value="no">❌ No podré asistir</option>
@@ -421,6 +430,7 @@
   </div>
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 <script>
   function updateCountdown() {
     const target = new Date('2026-06-27T18:00:00');
@@ -448,6 +458,9 @@
     const personas = document.getElementById('personas').value.trim();
     const conf   = document.getElementById('conf').value;
     if (!nombre || !conf) { alert('Por favor completa todos los campos.'); return; }
+    if (personas && (isNaN(personas) || personas < 1 || personas > 20)) {
+      alert('Por favor ingresa un número válido de personas (1-20).'); return;
+    }
     const btn = document.querySelector('.mbtn');
     btn.textContent = 'Enviando...'; btn.disabled = true;
     try {
@@ -463,6 +476,15 @@
       if (res.ok) {
         document.getElementById('mform').style.display = 'none';
         document.getElementById('msuccess').style.display = 'block';
+        // Trigger confetti on success
+        if (typeof confetti !== 'undefined') {
+          confetti({
+            particleCount: 150,
+            spread: 70,
+            origin: { y: 0.6 },
+            colors: ['#C9A84C', '#E8C97A', '#F5DFA0', '#FFD700']
+          });
+        }
       } else { throw new Error(); }
     } catch(e) {
       alert('Hubo un error. Intenta de nuevo.');
