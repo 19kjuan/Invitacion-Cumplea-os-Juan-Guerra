@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>90 Años · Juan Bautista Guerra Contreras</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=Great+Vibes&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg:        #1C1208;
+    --bg2:       #251809;
+    --bg3:       #2E1E0A;
+    --gold:      #C9A84C;
+    --gold-l:    #E8C97A;
+    --gold-b:    #F5DFA0;
+    --cream:     #F5EDD8;
+    --brown:     #5C3D1E;
+    --text:      #E8DCCC;
+    --muted:     rgba(232,201,122,0.55);
+  }
+
+  body {
+    background: var(--bg);
+    font-family: 'Cormorant Garamond', serif;
+    color: var(--text);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* Warm vignette */
+  body::before {
+    content: '';
+    position: fixed; inset: 0;
+    background:
+      radial-gradient(ellipse at 50% 0%,   rgba(201,168,76,0.09) 0%, transparent 55%),
+      radial-gradient(ellipse at 0%   50%,  rgba(92,61,30,0.35)   0%, transparent 45%),
+      radial-gradient(ellipse at 100% 50%,  rgba(92,61,30,0.35)   0%, transparent 45%),
+      radial-gradient(ellipse at 50% 100%, rgba(26,18,8,0.6)     0%, transparent 55%);
+    pointer-events: none; z-index: 0;
+  }
+
+  .card {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 24px 20px;
+    position: relative; z-index: 1;
+  }
+
+  /* ── outer frame ── */
+  .frame {
+    border: 1px solid rgba(201,168,76,0.45);
+    background: linear-gradient(178deg, var(--bg2) 0%, var(--bg3) 100%);
+    box-shadow: 0 0 100px rgba(201,168,76,0.08), inset 0 0 60px rgba(201,168,76,0.03);
+    position: relative;
+    padding: 48px 44px 40px;
+  }
+  .frame::before {
+    content: ''; position: absolute; inset: 8px;
+    border: 1px solid rgba(201,168,76,0.16);
+    pointer-events: none;
+  }
+
+  /* corner ornaments */
+  .c { position: absolute; width: 40px; height: 40px; }
+  .c::before,.c::after { content:''; position:absolute; background:var(--gold); }
+  .c::before { width:100%; height:1.5px; top:0; left:0; }
+  .c::after  { width:1.5px; height:100%; top:0; left:0; }
+  .c.tl { top:4px; left:4px; }
+  .c.tr { top:4px; right:4px; transform:scaleX(-1); }
+  .c.bl { bottom:4px; left:4px; transform:scaleY(-1); }
+  .c.br { bottom:4px; right:4px; transform:scale(-1); }
+
+  /* ── typography helpers ── */
+  .eyebrow {
+    text-align:center; font-size:10px;
+    letter-spacing:5px; text-transform:uppercase;
+    color:var(--gold); opacity:.7;
+    margin-bottom:10px;
+    animation: up .9s ease both;
+  }
+
+  .script-title {
+    font-family:'Great Vibes',cursive;
+    font-size: clamp(2.6rem,7.5vw,4.2rem);
+    color: var(--gold-l);
+    text-align:center; line-height:1.05;
+    text-shadow: 0 2px 30px rgba(201,168,76,.35);
+    animation: up 1s ease both;
+  }
+
+  .divider {
+    display:flex; align-items:center; gap:12px; margin:18px 0;
+  }
+  .d-line { flex:1; height:1px; background:linear-gradient(90deg,transparent,var(--gold),transparent); }
+  .d-dot  { width:5px; height:5px; background:var(--gold); transform:rotate(45deg); flex-shrink:0; }
+
+  /* ── PHOTO ── */
+  .photo-wrap {
+    margin: 24px auto;
+    max-width: 420px;
+    position: relative;
+    animation: up 1.2s ease both;
+  }
+  /* double border like screenshot */
+  .photo-wrap::before {
+    content:''; position:absolute;
+    inset: -5px;
+    border: 1px solid rgba(201,168,76,.5);
+    z-index:2; pointer-events:none;
+  }
+  .photo-wrap::after {
+    content:''; position:absolute;
+    inset: -11px;
+    border: 1px solid rgba(201,168,76,.18);
+    z-index:2; pointer-events:none;
+  }
+  .photo-wrap img {
+    width:100%; display:block;
+    box-shadow: 0 16px 60px rgba(0,0,0,.65);
+    filter: contrast(1.04) brightness(.98) saturate(.95);
+  }
+  .photo-caption {
+    text-align:center; font-style:italic;
+    font-size:14px; color:var(--gold-l);
+    opacity:.65; margin-top:14px;
+    letter-spacing:1px;
+  }
+
+  /* ── BIG 90 ── */
+  .ninety-wrap {
+    text-align:center; margin: 28px 0 20px;
+    animation: up 1.3s ease both;
+  }
+  .ninety {
+    font-family:'Playfair Display',serif;
+    font-size: clamp(5rem,16vw,8.5rem);
+    font-weight:700; line-height:1;
+    background: linear-gradient(160deg, var(--gold) 0%, var(--gold-b) 45%, var(--gold) 100%);
+    -webkit-background-clip:text; background-clip:text;
+    color:transparent;
+    filter: drop-shadow(0 4px 24px rgba(201,168,76,.4));
+    letter-spacing:-4px;
+    display:block;
+  }
+  .ninety-sub {
+    font-size:11px; letter-spacing:5px;
+    text-transform:uppercase; color:var(--muted);
+    margin-top:14px; display:block;
+    padding-bottom: 8px;
+  }
+
+  /* ── NAME ── */
+  .name-wrap {
+    text-align:center; margin: 28px 0 22px;
+    padding-top: 8px;
+    border-top: 1px solid rgba(201,168,76,0.15);
+    animation: up 1.4s ease both;
+  }
+  .pre-name {
+    font-size:10px; letter-spacing:5px;
+    text-transform:uppercase; color:var(--muted);
+    margin-bottom:12px;
+  }
+  .main-name {
+    font-family:'Great Vibes',cursive;
+    font-size: clamp(2rem,6vw,3.2rem);
+    color:var(--cream); line-height:1.2;
+  }
+  .name-titles {
+    font-size:11px; letter-spacing:4px;
+    text-transform:uppercase; color:var(--gold);
+    opacity:.6; margin-top:10px;
+  }
+
+  /* ── QUOTE ── */
+  .quote {
+    border-left: 2px solid var(--gold);
+    padding: 14px 22px;
+    margin: 22px 0;
+    background: rgba(201,168,76,.04);
+    animation: up 1.5s ease both;
+  }
+  .quote p {
+    font-style:italic; font-size:15.5px;
+    line-height:1.75; color:var(--text); opacity:.82;
+  }
+
+  /* ── COUNTDOWN ── */
+  .cd-section { margin:26px 0; animation: up 1.6s ease both; }
+  .cd-title {
+    text-align:center; font-size:10px;
+    letter-spacing:4px; text-transform:uppercase;
+    color:var(--gold); opacity:.6; margin-bottom:16px;
+  }
+  .cd-grid {
+    display:grid; grid-template-columns:repeat(4,1fr); gap:10px;
+  }
+  .cd-box {
+    text-align:center;
+    background: rgba(201,168,76,.05);
+    border:1px solid rgba(201,168,76,.22);
+    border-top: 2px solid rgba(201,168,76,.55);
+    padding:14px 6px 12px;
+  }
+  .cd-num {
+    font-family:'Playfair Display',serif;
+    font-size: clamp(1.8rem,5vw,2.8rem);
+    font-weight:700; color:var(--gold-l);
+    display:block; line-height:1;
+    text-shadow: 0 0 18px rgba(201,168,76,.3);
+  }
+  .cd-lbl {
+    font-size:9px; letter-spacing:2px;
+    text-transform:uppercase; color:var(--muted);
+    margin-top:5px; display:block;
+  }
+
+  /* ── DETAILS ── */
+  .details { margin:24px 0; animation: up 1.7s ease both; }
+  .det-row {
+    display:flex; align-items:flex-start;
+    gap:16px; padding:13px 0;
+    border-bottom:1px solid rgba(201,168,76,.1);
+  }
+  .det-row:last-child { border-bottom:none; }
+  .det-icon { font-size:1.1rem; width:26px; text-align:center; flex-shrink:0; margin-top:2px; }
+  .det-body { font-size:16px; line-height:1.5; }
+  .det-body strong {
+    display:block; font-weight:400;
+    font-size:10px; letter-spacing:3px;
+    text-transform:uppercase; color:var(--gold);
+    opacity:.55; margin-bottom:3px;
+  }
+  .det-body a { color:var(--gold-l); text-decoration:none; border-bottom:1px solid rgba(232,201,122,.3); }
+  .det-body a:hover { opacity:.7; }
+
+  /* ── RSVP button ── */
+  .rsvp-wrap { text-align:center; margin:30px 0 12px; animation: up 1.9s ease both; }
+  .rsvp-btn {
+    display:inline-block; padding:17px 56px;
+    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-b) 50%, var(--gold) 100%);
+    border:none; color:var(--bg);
+    font-family:'Cormorant Garamond',serif;
+    font-size:14px; font-weight:600;
+    letter-spacing:4px; text-transform:uppercase;
+    cursor:pointer;
+    box-shadow: 0 4px 28px rgba(201,168,76,.35), inset 0 1px 0 rgba(255,255,255,.2);
+    transition: transform .3s, box-shadow .3s;
+    position:relative;
+  }
+  .rsvp-btn::before {
+    content:''; position:absolute; inset:3px;
+    border:1px solid rgba(255,255,255,.15);
+    pointer-events:none;
+  }
+  .rsvp-btn:hover { transform:translateY(-3px); box-shadow:0 10px 40px rgba(201,168,76,.55); }
+
+  .footer { text-align:center; font-size:11px; letter-spacing:2px; opacity:.28; text-transform:uppercase; margin-top:12px; }
+
+  /* ── MODAL ── */
+  .overlay {
+    display:none; position:fixed; inset:0;
+    background:rgba(0,0,0,.88); z-index:200;
+    align-items:center; justify-content:center; padding:20px;
+  }
+  .overlay.on { display:flex; animation: up .3s ease; }
+  .modal {
+    background:var(--bg2);
+    border:1px solid rgba(201,168,76,.4);
+    border-top:3px solid var(--gold);
+    padding:38px 34px;
+    max-width:400px; width:100%;
+    position:relative;
+    box-shadow:0 0 70px rgba(201,168,76,.14);
+  }
+  .modal::before { content:''; position:absolute; inset:7px; border:1px solid rgba(201,168,76,.1); pointer-events:none; }
+  .modal h3 {
+    font-family:'Playfair Display',serif;
+    font-size:1.4rem; letter-spacing:2px;
+    color:var(--gold-l); text-align:center; margin-bottom:22px;
+  }
+  .modal input,.modal select {
+    width:100%;
+    background:rgba(26,18,8,.9);
+    border:1px solid rgba(201,168,76,.28);
+    border-bottom:1px solid rgba(201,168,76,.5);
+    color:var(--cream); padding:12px 16px;
+    font-family:'Cormorant Garamond',serif; font-size:15px;
+    margin-bottom:12px; outline:none; transition:border-color .3s;
+  }
+  .modal input:focus,.modal select:focus { border-color:var(--gold-l); }
+  .modal select option { background:var(--bg2); }
+  .mbtn {
+    width:100%; padding:14px;
+    background:linear-gradient(135deg,var(--gold),var(--gold-l));
+    border:none; color:var(--bg);
+    font-family:'Cormorant Garamond',serif;
+    font-size:14px; font-weight:700;
+    letter-spacing:3px; text-transform:uppercase;
+    cursor:pointer; margin-top:6px; transition:opacity .3s;
+  }
+  .mbtn:hover { opacity:.85; }
+  .mclose {
+    position:absolute; top:14px; right:18px;
+    background:none; border:none;
+    color:var(--gold); font-size:1.3rem;
+    cursor:pointer; opacity:.5; transition:opacity .2s;
+  }
+  .mclose:hover { opacity:1; }
+  .success { text-align:center; color:var(--gold-l); font-style:italic; font-size:1.1rem; padding:22px 0; line-height:1.9; }
+
+  @keyframes up { from{opacity:0;transform:translateY(18px)} to{opacity:1;transform:translateY(0)} }
+
+  @media(max-width:500px){
+    .frame { padding:32px 18px 28px; }
+    .cd-grid { grid-template-columns:repeat(2,1fr); }
+    .rsvp-btn { padding:15px 32px; letter-spacing:2px; }
+  }
+</style>
+</head>
+<body>
+<div class="card">
+<div class="frame">
+  <div class="c tl"></div><div class="c tr"></div>
+  <div class="c bl"></div><div class="c br"></div>
+
+  <p class="eyebrow">Con amor &amp; alegría · Los invitamos</p>
+  <h1 class="script-title">Familia Guerra Carrillo</h1>
+
+  <div class="divider"><div class="d-line"></div><div class="d-dot"></div><div class="d-dot"></div><div class="d-dot"></div><div class="d-line"></div></div>
+
+  <!-- PHOTO -->
+  <div class="photo-wrap">
+    <img src="/img/nowatermark_ABuelo.png" alt="">
+  </div>
+  <p class="photo-caption">90 años de historia, dignidad y amor</p>
+
+  <!-- 90 -->
+  <div class="ninety-wrap">
+    <span class="ninety">90</span>
+    <span class="ninety-sub">Años de vida &nbsp;·&nbsp; Bendición &nbsp;·&nbsp; Sabiduría</span>
+  </div>
+
+  <!-- NAME -->
+  <div class="name-wrap">
+    <p class="pre-name">Honramos y celebramos a</p>
+    <p class="main-name">Juan Bautista Guerra Contreras</p>
+    <p class="name-titles">El Patriarca &nbsp;·&nbsp; El Hombre &nbsp;·&nbsp; La Leyenda</p>
+  </div>
+
+  <div class="divider"><div class="d-line"></div><div class="d-dot"></div><div class="d-line"></div></div>
+
+  <!-- QUOTE -->
+  <div class="quote">
+    <p>Noventa años no se cumplen solos — se construyen con carácter, con fe, con amor y con la fortaleza de quien ha vivido cada día con dignidad. Don Juan Bautista, esta noche es completamente suya.</p>
+  </div>
+
+  <!-- COUNTDOWN -->
+  <div class="cd-section">
+    <p class="cd-title">⏳ &nbsp; Cuenta regresiva al gran día</p>
+    <div class="cd-grid">
+      <div class="cd-box"><span class="cd-num" id="days">--</span><span class="cd-lbl">Días</span></div>
+      <div class="cd-box"><span class="cd-num" id="hours">--</span><span class="cd-lbl">Horas</span></div>
+      <div class="cd-box"><span class="cd-num" id="minutes">--</span><span class="cd-lbl">Minutos</span></div>
+      <div class="cd-box"><span class="cd-num" id="seconds">--</span><span class="cd-lbl">Segundos</span></div>
+    </div>
+  </div>
+
+  <div class="divider"><div class="d-line"></div><div class="d-dot"></div><div class="d-line"></div></div>
+
+  <!-- DETAILS -->
+  <div class="details">
+    <div class="det-row">
+      <div class="det-icon">📅</div>
+      <div class="det-body"><strong>Fecha</strong>Sábado 27 de Junio, 2026</div>
+    </div>
+    <div class="det-row">
+      <div class="det-icon">🕕</div>
+      <div class="det-body"><strong>Hora</strong>6:00 PM</div>
+    </div>
+    <div class="det-row">
+      <div class="det-icon">🌿</div>
+      <div class="det-body"><strong>Lugar</strong>Casa Campo Casa Palma</div>
+    </div>
+    <div class="det-row">
+      <div class="det-icon">📍</div>
+      <div class="det-body"><strong>Ubicación</strong><a href="https://goo.gl/maps/h9JqUfMepd6xkGUo8" target="_blank">Ver en Google Maps →</a></div>
+    </div>
+  </div>
+
+  <!-- RSVP -->
+  <div class="rsvp-wrap">
+    <button class="rsvp-btn" onclick="document.getElementById('modal').classList.add('on')">
+      ✉ &nbsp; Confirmar Asistencia
+    </button>
+  </div>
+
+  <p class="footer">Con orgullo · Familia Guerra Carrillo</p>
+</div>
+</div>
+
+<!-- MODAL -->
+<div class="overlay" id="modal">
+  <div class="modal">
+    <button class="mclose" onclick="document.getElementById('modal').classList.remove('on')">✕</button>
+    <h3>Confirmar Asistencia</h3>
+    <div id="mform">
+      <input type="text" id="nombre" placeholder="Tu nombre completo" />
+      <input type="number" id="personas" placeholder="¿Cuántas personas asistirán?" min="1" max="20" />
+      <select id="conf">
+        <option value="si">✅ Sí, estaré presente</option>
+        <option value="no">❌ No podré asistir</option>
+      </select>
+      <button class="mbtn" onclick="confirmar()">Confirmar</button>
+    </div>
+    <div id="msuccess" style="display:none;">
+      <p class="success">🥃 ¡Gracias por confirmar!<br><br>Te esperamos el 27 de Junio para honrar juntos los 90 años de Don Juan Bautista.<br><br><em>— Familia Guerra Carrillo</em></p>
+    </div>
+  </div>
+</div>
+
+<script>
+  function updateCountdown() {
+    const target = new Date('2026-06-27T18:00:00');
+    const now    = new Date();
+    const diff   = target - now;
+    if (diff <= 0) {
+      ['days','hours','minutes','seconds'].forEach(id => document.getElementById(id).textContent = '0');
+      return;
+    }
+    const d = Math.floor(diff / 86400000);
+    const h = Math.floor((diff % 86400000) / 3600000);
+    const m = Math.floor((diff % 3600000)  / 60000);
+    const s = Math.floor((diff % 60000)    / 1000);
+    const p = n => String(n).padStart(2,'0');
+    document.getElementById('days').textContent    = d;
+    document.getElementById('hours').textContent   = p(h);
+    document.getElementById('minutes').textContent = p(m);
+    document.getElementById('seconds').textContent = p(s);
+  }
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+
+  async function confirmar() {
+    const nombre = document.getElementById('nombre').value.trim();
+    const personas = document.getElementById('personas').value.trim();
+    const conf   = document.getElementById('conf').value;
+    if (!nombre || !conf) { alert('Por favor completa todos los campos.'); return; }
+    const btn = document.querySelector('.mbtn');
+    btn.textContent = 'Enviando...'; btn.disabled = true;
+    try {
+      const res = await fetch('https://formspree.io/f/xvzlzkjl', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({
+          nombre, personas: personas || '1',
+          asistencia: conf==='si'?'✅ Sí asiste':conf==='no'?'❌ No asiste':'🤔 Tal vez',
+          _subject: '🎩 Confirmación · 90 Años Juan Bautista Guerra'
+        })
+      });
+      if (res.ok) {
+        document.getElementById('mform').style.display = 'none';
+        document.getElementById('msuccess').style.display = 'block';
+      } else { throw new Error(); }
+    } catch(e) {
+      alert('Hubo un error. Intenta de nuevo.');
+      btn.textContent = 'Confirmar'; btn.disabled = false;
+    }
+  }
+
+  document.getElementById('modal').addEventListener('click', function(e){
+    if(e.target===this) this.classList.remove('on');
+  });
+</script>
+</body>
+</html>
